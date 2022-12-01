@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  /* FONT FAMILY */
+  --ff-primary: 'Roboto', sans-serif;
+
+  /* BASE COLOR */
+  --base-color: 194;
+
+  /*  FOCUS INSIDE  */
+  --color-focus: #FFFFFF;
+
+  /* LIGHT */
+  --bg-color-light: #FFFFFF;
+  --color-light: #323238;
+  --controls-light: #323238;
+  --sounds-light: #E1E1E6;
+  --bg-focus-light: hsl(var(--base-color), 97%, 31%);
+
+  /* DARK */
+  --bg-color-dark: #121214;
+  --color-dark: #FFFFFF;
+  --controls-dark: #C4C4CC;
+  --sounds-dark: #29292E;
+  --bg-focus-dark: hsl(var(--base-color), 74%, 18%);
+}
+
+body {
+  font-family: var(--ff-primary);
+
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  
+  display: grid;
+  grid-template-rows: 0fr 1fr;
+  min-height: 100vh;
+}
+
+.dark {
+  background-color: var(--bg-color-dark);
+  color: var(--color-dark);
+}
+
+.hide {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  
+  cursor: pointer;
+}
+
+#header {
+  display: flex;
+  justify-content: end;
+
+  padding: 2rem 3rem 0 0;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-evenly;
+  margin: 1rem 0 5rem;
+}
+
+#timer  {
+  font-size: clamp(11.5rem, 0.5rem + 10vw, 12.6rem);
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  margin-bottom: 1.7rem;
+}
+
+
+#controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 0.5rem + 10vw, 3rem);
+}
+#controls svg {
+  width: clamp(4rem, 0.5rem + 10vw, 4.8rem);
+}
+  /* COLOR BUTTON CONTROLS*/
+#controls svg path:nth-child(1) {
+  fill: var(--controls-light);
+}
+#controls .focus svg path:nth-child(1) {
+  fill: var(--bg-focus-light);
+} 
+.dark #controls svg path:nth-child(1) {
+  fill: var(--controls-dark);
+}
+.dark #controls .focus svg path:nth-child(1) {
+  fill: var(--bg-focus-dark);
+}
+
+/* VOLUME  */
+input {
+  display: flex;
+}
+input[type="range"] {
+  appearance: none;
+  width: 9rem;
+  margin: 0 auto;
+  position: relative;
+  bottom: 4rem;
+  border-radius: 1rem;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  appearance: none;
+  width: 9rem;
+  height: .4rem;
+  border-radius: 1rem;
+  background-color: var(--color-light);
+}
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: -.5rem;
+  background-color: var(--color-light);
+  border-radius: 50%;
+}
+.dark input[type='range']::-webkit-slider-runnable-track {
+  background-color: var(--color-dark);
+}
+.dark input[type='range']::-webkit-slider-thumb {
+  background-color: var(--color-dark);
+}
+
+
+#soundsControls {
+  display: grid;
+  grid-template-areas: 
+  "A B"
+  "C D";
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+}
+#soundsControls svg {
+  width: clamp(13rem, 0.5rem + 10vw ,13.8rem);
+}
+  /* COLOR BUTTON SOUNDS*/
+#soundsControls svg path:nth-child(1) {
+  fill: var(--sounds-light);
+}
+#soundsControls .focus svg path:nth-child(1) {
+  fill: var(--bg-focus-light);
+}
+.dark #soundsControls svg path:nth-child(1) {
+  fill: var(--sounds-dark);
+}
+.dark #soundsControls .focus svg path:nth-child(1) {
+  fill: var(--bg-focus-dark);
+}
+
+  /* DETAILS OF BUTTON */
+#soundsControls svg path {
+  fill: var(--color-light);
+}
+#soundsControls .focus svg path {
+  fill: var(--color-focus);
+}
+.dark #soundsControls svg path {
+  fill: var(--controls-dark);
+}
+.dark #soundsControls .focus svg path {
+  fill: var(--color-focus);
+}
